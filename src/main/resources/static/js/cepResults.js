@@ -11,9 +11,38 @@ var getTrafficLightValues = function (trafficLightId) {
     $.ajax({
         url: "/trafficLight/"+trafficLightId,
         success: function (result) {
-            console.log(result)
+            console.log(result);
+            var stoN = result["stoN"];
+            var wtoO = result["wtoO"];
+            var wtoN = result["wtoN"];
+            var otoN = result["otoN"];
+            var wtoS = result["wtoS"];
+            var otoS = result["otoS"];
+            var wtoNOtoS = result["wtoNOtoS"];
+            if(typeof stoN !== 'undefined'){
+                setTableValue("#stoN."+trafficLightId, stoN.value);
+            } if (typeof wtoO !== 'undefined'){
+                setTableValue("#wtoO."+trafficLightId, wtoO.value);
+            } if (typeof wtoN !== 'undefined'){
+                setTableValue("#wtoN."+trafficLightId, wtoN.value);
+            } if (typeof otoN !== 'undefined'){
+                setTableValue("#otoN."+trafficLightId, otoN.value);
+            } if (typeof wtoS !== 'undefined'){
+                setTableValue("#wtoS."+trafficLightId, wtoS.value);
+            } if (typeof otoS !== 'undefined'){
+                setTableValue("#otoS."+trafficLightId, otoS.value);
+            } if (typeof wtoNOtoS !== 'undefined'){
+                setTableValue("#wtoNOtoS."+trafficLightId, wtoNOtoS.value);
+            }
         }
     })
+}
+
+var setTableValue = function(elementId, value){
+    console.log("value: "+elementId)
+    var element = $(elementId);
+    element.html(value);
+    console.log(element)
 }
 
 var changeCheckbox = function (id, incident, place) {

@@ -5,9 +5,11 @@ import java.util.Map;
 
 public class Casestudy {
 
-    private static final Casestudy instance = new Casestudy();
+    private static Casestudy instance;
 
     private Map<String, Intersection> intersectionMap;
+
+    private EventStream eventStream;
 
     private Casestudy(){
         this.intersectionMap = new HashMap<>();
@@ -18,9 +20,14 @@ public class Casestudy {
         intersectionMap.put("K1", k1);
         intersectionMap.put("K2", k2);
         intersectionMap.put("K3", k3);
+
+        this.eventStream = new EventStream();
     }
 
     public static Casestudy getInstance(){
+        if(instance == null){
+            instance = new Casestudy();
+        }
         return instance;
     }
 

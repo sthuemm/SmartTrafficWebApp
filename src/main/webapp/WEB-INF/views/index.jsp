@@ -42,8 +42,8 @@
                             <c:forEach var="trafficLight" items="${trafficlights}">
                                 <tr>
                                     <td></td>
-                                    <td><c:out value="${trafficLight.key}"/></td>
-                                    <td class="${intersection.key}" id="${trafficLight.key}"><c:out value="${trafficLight.value}"/></td>
+                                    <td><c:out value="${trafficLight.value.description}"/></td>
+                                    <td class="${intersection.key}" id="${trafficLight.value.id}"><c:out value="${trafficLight.value.value}"/></td>
                                 </tr>
                             </c:forEach>
                         </tr>

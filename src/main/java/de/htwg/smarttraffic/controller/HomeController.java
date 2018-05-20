@@ -30,7 +30,6 @@ public class HomeController {
         System.out.println(trafficLightId);
         Intersection intersection = casestudy.getIntersectionMap().get(trafficLightId);
 
-
         System.out.println(intersection);
         return new ResponseEntity<>(intersection.getTrafficLights(), HttpStatus.OK);
     }
