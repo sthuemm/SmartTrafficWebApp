@@ -11,6 +11,7 @@ public class Intersection {
 
     private Map<String, Integer> trafficLights;
 
+
     public Intersection(IntersectionType type){
         trafficLights = new HashMap<>();
         if ( type == IntersectionType.WNO){

@@ -56,27 +56,25 @@
             <div class="col">
                 <h3>Ereignisse ausloesen</h3>
                 <br>
-                <div class="form-group">
-                  <span class="switch">
-                    <input type="checkbox" class="switch" id="switch-railroad" onchange="changeCheckbox('switch-railroad','railroad','S1')">
-                    <label for="switch-railroad">Bahnschranke unten</label>
-                  </span>
-                </div>
-                <br>
-                <div class="form-group">
-                  <span class="switch">
-                    <input type="checkbox" class="switch" id="switch-unfall" onchange="changeCheckbox('switch-unfall','accident', 'K2')">
-                    <label for="switch-unfall">Unfall an K2 passiert</label>
-                  </span>
-                </div>
-                <br>
-                <div class="form-group">
-                      <span class="switch">
-                        <input type="checkbox" class="switch" id="switch-stickoxid" onchange="changeCheckbox('switch-stickoxid','nitrogenOxide', 'K2')">
-                        <label for="switch-stickoxid">Stickoxidwerte an K2 zu hoch</label>
-                      </span>
-                </div>
+                <p>Bahnschranke</p>
+                <label class="switch">
+                    <input type="checkbox" id="switch-railroad" onchange="changeCheckbox('switch-railroad','railroad','S1')">
+                    <div class="slider round railroad"></div>
+                </label>
 
+                <br>
+                <p>Verkehrslage Kreuzung 2</p>
+                <label class="switch">
+                    <input type="checkbox" id="switch-unfall" onchange="changeCheckbox('switch-unfall','accident', 'K2')">
+                    <div class="slider round unfall"></div>
+                </label>
+                <br>
+                <p>Stickoxid-Werte an Kreuzung 2</p>
+                <label class="switch">
+                    <input type="checkbox" id="switch-stickoxid" onchange="changeCheckbox('switch-stickoxid','nitrogenOxide', 'K2')">
+
+                    <div class="slider round stickoxid"></div>
+                </label>
             </div>
             <div class="col">
                 <h3>Ereignissstroeme</h3>

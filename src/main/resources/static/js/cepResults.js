@@ -5,8 +5,6 @@ $(document).ready(function(){
         getTrafficLightValues("K3");
 
     }, 1000)
-
-
 })
 
 var getTrafficLightValues = function (trafficLightId) {
