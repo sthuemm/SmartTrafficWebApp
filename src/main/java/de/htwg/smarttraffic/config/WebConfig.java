@@ -12,7 +12,7 @@
 //    @Override
 //    public void addResourceHandlers(ResourceHandlerRegistry registry) {
 //        registry
-//                .addResourceHandler("/webjars/**")
-//                .addResourceLocations("/webjars/");
+//                .addResourceHandler("/resources/**")
+//                .addResourceLocations("/resources/");
 //    }
 //}

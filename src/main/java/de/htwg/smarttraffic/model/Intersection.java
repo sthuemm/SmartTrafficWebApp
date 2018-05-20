@@ -47,4 +47,11 @@ public class Intersection {
     public void setTrafficLights(Map<String, Integer> trafficLights) {
         this.trafficLights = trafficLights;
     }
+
+    @Override
+    public String toString() {
+        return "Intersection{" +
+                "trafficLights=" + trafficLights +
+                '}';
+    }
 }
