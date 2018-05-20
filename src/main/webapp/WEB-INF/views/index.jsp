@@ -85,7 +85,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Fahrzeuge pro Minute</span>
                         </div>
-                        <input type="number" class="form-control" id="Verkehr von O <--> W  " aria-describedby="basic-addon3" value="10">
+                        <input type="number" min="0" max="60" class="form-control" id="Verkehr von O <--> W  " aria-describedby="basic-addon3" value="10">
                     </div>
                 </div>
                 <div class="row">
@@ -94,7 +94,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Fahrzeuge pro Minute</span>
                         </div>
-                        <input type="number" class="form-control" id="Verkehr von N <--> S  " aria-describedby="basic-addon3" value="10">
+                        <input type="number" min="0" max="60" class="form-control" id="Verkehr von N <--> S  " aria-describedby="basic-addon3" value="10">
                     </div>
                 </div>
                 <div class="row">
@@ -103,7 +103,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Fahrzeuge pro Minute</span>
                         </div>
-                        <input type="number" class="form-control" id="Verkehr von N <--> O  " aria-describedby="basic-addon3" value="10">
+                        <input type="number" min="0" max="60" class="form-control" id="Verkehr von N <--> O  " aria-describedby="basic-addon3" value="10">
                     </div>
                 </div>
                 <div class="row">
@@ -112,7 +112,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Fahrzeuge pro Minute</span>
                         </div>
-                        <input type="number" class="form-control" id="Verkehr von N <--> W  " aria-describedby="basic-addon3" value="10">
+                        <input type="number" min="0" max="60" class="form-control" id="Verkehr von N <--> W  " aria-describedby="basic-addon3" value="10">
                     </div>
                 </div>
                 <div class="row">
@@ -121,7 +121,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Fahrzeuge pro Minute</span>
                         </div>
-                        <input type="number" class="form-control" id="Verkehr von S <--> O  " aria-describedby="basic-addon3" value="10">
+                        <input type="number" min="0" max="60" class="form-control" id="Verkehr von S <--> O  " aria-describedby="basic-addon3" value="10">
                     </div>
                 </div>
                 <div class="row">
@@ -130,7 +130,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Fahrzeuge pro Minute</span>
                         </div>
-                        <input type="number" class="form-control" id="Verkehr von S <--> W  " aria-describedby="basic-addon3" value="10">
+                        <input type="number" min="0" max="60" class="form-control" id="Verkehr von S <--> W  " aria-describedby="basic-addon3" value="10">
                     </div>
                 </div>
             </div>
