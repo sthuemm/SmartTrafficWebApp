@@ -35,4 +35,13 @@ public class TrafficLight {
     public void setValue(int value) {
         this.value = value;
     }
+
+    @Override
+    public String toString() {
+        return "TrafficLight{" +
+                "id='" + id + '\'' +
+                ", description='" + description + '\'' +
+                ", value=" + value +
+                '}';
+    }
 }

@@ -7,6 +7,21 @@ $(document).ready(function(){
     }, 1000)
 })
 
+var updateTrafficPerMinute = function(id){
+    var value = $("#traffic"+id).val();
+    console.log(value);
+    $.ajax({
+        url: "/trafficPerMinute/"+id,
+        type: "PUT",
+        contentType : "application/json",
+        data: value,
+        success: function (response) {
+            console.log(response)
+        }
+
+    })
+}
+
 var getTrafficLightValues = function (trafficLightId) {
     $.ajax({
         url: "/trafficLight/"+trafficLightId,

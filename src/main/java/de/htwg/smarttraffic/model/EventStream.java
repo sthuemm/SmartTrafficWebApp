@@ -1,5 +1,8 @@
 package de.htwg.smarttraffic.model;
 
+import de.htwg.smarttraffic.cep.esper.EsperRuntime;
+import de.htwg.smarttraffic.cep.esper.event.TrafficEvent;
+
 public class EventStream {
 
     private int trafficOtoW;
@@ -14,13 +17,98 @@ public class EventStream {
 
     private int trafficStoW;
 
-    public EventStream(){
+    public EventStream(EsperRuntime esperRuntime){
         this.trafficNtoW = 10;
         this.trafficNtoS = 10;
         this.trafficNtoO = 10;
         this.trafficOtoW = 10;
         this.trafficStoW = 10;
         this.trafficStoO = 10;
+
+        new Thread(() -> {
+            while (true){
+                try {
+                    Thread.sleep(60000/trafficOtoW);
+                    synchronized (EsperRuntime.getInstance()){
+                        EsperRuntime.getInstance().sendEvent(new TrafficEvent("O <--> W"));
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }).start();
+
+        new Thread(() -> {
+            while (true){
+                try {
+                    Thread.sleep(60000/trafficNtoS);
+                    synchronized (EsperRuntime.getInstance()){
+                        EsperRuntime.getInstance().sendEvent(new TrafficEvent("N <--> S"));
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }).start();
+
+        new Thread(() -> {
+            while (true){
+                try {
+                    Thread.sleep(60000/trafficNtoO);
+                    synchronized (EsperRuntime.getInstance()){
+                        EsperRuntime.getInstance().sendEvent(new TrafficEvent("N <--> O"));
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }).start();
+
+        new Thread(() -> {
+            while (true){
+                try {
+                    Thread.sleep(60000/trafficNtoW);
+                    synchronized (EsperRuntime.getInstance()){
+                        EsperRuntime.getInstance().sendEvent(new TrafficEvent("N <--> W"));
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }).start();
+
+        new Thread(() -> {
+            while (true){
+                try {
+                    Thread.sleep(60000/trafficStoW);
+                    synchronized (EsperRuntime.getInstance()){
+                        EsperRuntime.getInstance().sendEvent(new TrafficEvent("S <--> W"));
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }).start();
+
+        new Thread(() -> {
+            while (true){
+                try {
+                    Thread.sleep(60000/trafficStoO);
+                    synchronized (EsperRuntime.getInstance()){
+                        EsperRuntime.getInstance().sendEvent(new TrafficEvent("S <--> O"));
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }).start();
+
     }
 
     public int getTrafficOtoW() {

@@ -1,5 +1,7 @@
 package de.htwg.smarttraffic;
 
+import de.htwg.smarttraffic.cep.esper.EsperRuntime;
+import de.htwg.smarttraffic.cep.esper.EsperServiceProvider;
 import de.htwg.smarttraffic.model.Casestudy;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,5 +19,15 @@ public class SmarttrafficApplication {
 	@Bean
 	public Casestudy casestudy(){
 		return Casestudy.getInstance();
+	}
+
+	@Bean
+	public EsperRuntime esperRuntime(){
+		return new EsperRuntime();
+	}
+
+	@Bean
+	public EsperServiceProvider esperServiceProvider(){
+		return new EsperServiceProvider();
 	}
 }

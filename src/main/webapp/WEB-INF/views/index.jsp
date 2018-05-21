@@ -80,57 +80,57 @@
                 <h3>Ereignissstroeme</h3>
                 <br>
                 <div class="row">
-                    <label for="Verkehr von O <--> W  ">Verkehr von O <--> W  </label>
+                    <label for="trafficOtoW">Verkehr von O <--> W  </label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Fahrzeuge pro Minute</span>
                         </div>
-                        <input type="number" min="0" max="60" class="form-control" id="Verkehr von O <--> W  " aria-describedby="basic-addon3" value="10">
+                        <input type="number" min="0" max="60" class="form-control" id="trafficOtoW" aria-describedby="basic-addon3" value="${eventStream.trafficOtoW}" onchange="updateTrafficPerMinute('OtoW')">
                     </div>
                 </div>
                 <div class="row">
-                    <label for="Verkehr von N <--> S  ">Verkehr von N <--> S  </label>
+                    <label for="trafficNtoS">Verkehr von N <--> S  </label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Fahrzeuge pro Minute</span>
                         </div>
-                        <input type="number" min="0" max="60" class="form-control" id="Verkehr von N <--> S  " aria-describedby="basic-addon3" value="10">
+                        <input type="number" min="0" max="60" class="form-control" id="trafficNtoS" aria-describedby="basic-addon3" value="${eventStream.trafficNtoS}" onchange="updateTrafficPerMinute('NtoS')">
                     </div>
                 </div>
                 <div class="row">
-                    <label for="Verkehr von N <--> O  ">Verkehr von N <--> O  </label>
+                    <label for="trafficNtoO">Verkehr von N <--> O  </label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Fahrzeuge pro Minute</span>
                         </div>
-                        <input type="number" min="0" max="60" class="form-control" id="Verkehr von N <--> O  " aria-describedby="basic-addon3" value="10">
+                        <input type="number" min="0" max="60" class="form-control" id="trafficNtoO" aria-describedby="basic-addon3" value="${eventStream.trafficNtoO}" onchange="updateTrafficPerMinute('NtoO')">
                     </div>
                 </div>
                 <div class="row">
-                    <label for="Verkehr von N <--> W  ">Verkehr von N <--> W  </label>
+                    <label for="trafficNtoW">Verkehr von N <--> W  </label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Fahrzeuge pro Minute</span>
                         </div>
-                        <input type="number" min="0" max="60" class="form-control" id="Verkehr von N <--> W  " aria-describedby="basic-addon3" value="10">
+                        <input type="number" min="0" max="60" class="form-control" id="trafficNtoW" aria-describedby="basic-addon3" value="${eventStream.trafficNtoW}" onchange="updateTrafficPerMinute('NtoW')">
                     </div>
                 </div>
                 <div class="row">
-                    <label for="Verkehr von S <--> O  ">Verkehr von S <--> O  </label>
+                    <label for="trafficStoO">Verkehr von S <--> O  </label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Fahrzeuge pro Minute</span>
                         </div>
-                        <input type="number" min="0" max="60" class="form-control" id="Verkehr von S <--> O  " aria-describedby="basic-addon3" value="10">
+                        <input type="number" min="0" max="60" class="form-control" id="trafficStoO" aria-describedby="basic-addon3" value="${eventStream.trafficStoO}" onchange="updateTrafficPerMinute('StoO')">
                     </div>
                 </div>
                 <div class="row">
-                    <label for="Verkehr von S <--> W  ">Verkehr von S <--> W  </label>
+                    <label for="trafficStoW">Verkehr von S <--> W  </label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Fahrzeuge pro Minute</span>
                         </div>
-                        <input type="number" min="0" max="60" class="form-control" id="Verkehr von S <--> W  " aria-describedby="basic-addon3" value="10">
+                        <input type="number" min="0" max="60" class="form-control" id="trafficStoW" aria-describedby="basic-addon3" value="${eventStream.trafficStoW}" onchange="updateTrafficPerMinute('StoW')">
                     </div>
                 </div>
             </div>
