@@ -3,10 +3,9 @@ package de.htwg.smarttraffic.cep.esper;
 import com.espertech.esper.client.Configuration;
 import com.espertech.esper.client.EPServiceProvider;
 import com.espertech.esper.client.EPServiceProviderManager;
-import de.htwg.smarttraffic.cep.esper.event.RailroadCrossingBarrierCloseEvent;
-import de.htwg.smarttraffic.cep.esper.event.RailroadCrossingBarrierOpenEvent;
+import de.htwg.smarttraffic.cep.esper.event.railroad.RailroadCrossingBarrierCloseEvent;
+import de.htwg.smarttraffic.cep.esper.event.railroad.RailroadCrossingBarrierOpenEvent;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 

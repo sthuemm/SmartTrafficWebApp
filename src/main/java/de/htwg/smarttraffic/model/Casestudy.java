@@ -1,15 +1,19 @@
 package de.htwg.smarttraffic.model;
 
 import com.espertech.esper.client.EPStatement;
-import com.espertech.esper.client.EventBean;
-import com.espertech.esper.client.UpdateListener;
+
 import de.htwg.smarttraffic.cep.esper.EsperRuntime;
 import de.htwg.smarttraffic.cep.esper.EsperServiceProvider;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
+@Getter
+@Setter
 public class Casestudy {
 
     private static Casestudy instance;
@@ -76,13 +80,7 @@ public class Casestudy {
 
     }
 
-    public EventStream getEventStream() {
-        return eventStream;
-    }
 
-    public void setEventStream(EventStream eventStream) {
-        this.eventStream = eventStream;
-    }
 
 
 

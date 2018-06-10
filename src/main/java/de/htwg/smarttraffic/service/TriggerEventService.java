@@ -1,8 +1,12 @@
 package de.htwg.smarttraffic.service;
 
 import de.htwg.smarttraffic.cep.esper.EsperRuntime;
-import de.htwg.smarttraffic.cep.esper.event.RailroadCrossingBarrierCloseEvent;
-import de.htwg.smarttraffic.cep.esper.event.RailroadCrossingBarrierOpenEvent;
+import de.htwg.smarttraffic.cep.esper.event.accident.AccidentEndEvent;
+import de.htwg.smarttraffic.cep.esper.event.accident.AccidentStartEvent;
+import de.htwg.smarttraffic.cep.esper.event.environment.NitrogenOxideEndEvent;
+import de.htwg.smarttraffic.cep.esper.event.environment.NitrogenOxideStartEvent;
+import de.htwg.smarttraffic.cep.esper.event.railroad.RailroadCrossingBarrierCloseEvent;
+import de.htwg.smarttraffic.cep.esper.event.railroad.RailroadCrossingBarrierOpenEvent;
 import org.springframework.stereotype.Service;
 
 
@@ -15,6 +19,22 @@ public class TriggerEventService {
 
     public void triggerRailwayCrossingOpenEvent(String railwayCrossing){
         EsperRuntime.getInstance().sendEvent(new RailroadCrossingBarrierOpenEvent(railwayCrossing));
+    }
+
+    public void triggerAccidentCrossingStartEvent(String railwayCrossing){
+        EsperRuntime.getInstance().sendEvent(new AccidentStartEvent(railwayCrossing));
+    }
+
+    public void triggerAccidentCrossingEndEvent(String railwayCrossing){
+        EsperRuntime.getInstance().sendEvent(new AccidentEndEvent(railwayCrossing));
+    }
+
+    public void triggerNitroxigenCrossingHighEvent(String railwayCrossing){
+        EsperRuntime.getInstance().sendEvent(new NitrogenOxideStartEvent(railwayCrossing));
+    }
+
+    public void triggerNitrooxigenCrossingLowEvent(String railwayCrossing){
+        EsperRuntime.getInstance().sendEvent(new NitrogenOxideEndEvent(railwayCrossing));
     }
 
 }
