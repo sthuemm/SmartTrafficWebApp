@@ -30,20 +30,20 @@
                 <br>
                 <p>Bahnschranke</p>
                 <label class="switch">
-                    <input type="checkbox" id="switch-railroad" onchange="changeCheckbox('switch-railroad','railroad','S1')">
+                    <input type="checkbox" id="switch-railroad" onchange="changeCheckbox('switch-railroad','railroad','s1')">
                     <div class="slider round railroad"></div>
                 </label>
 
                 <br>
                 <p>Verkehrslage Kreuzung 2</p>
                 <label class="switch">
-                    <input type="checkbox" id="switch-unfall" onchange="changeCheckbox('switch-unfall','accident', 'K2')">
+                    <input type="checkbox" id="switch-unfall" onchange="changeCheckbox('switch-unfall','accident', 'k2')">
                     <div class="slider round unfall"></div>
                 </label>
                 <br>
                 <p>Stickoxid-Werte an Kreuzung 2</p>
                 <label class="switch">
-                    <input type="checkbox" id="switch-stickoxid" onchange="changeCheckbox('switch-stickoxid','nitrogenOxide', 'K2')">
+                    <input type="checkbox" id="switch-stickoxid" onchange="changeCheckbox('switch-stickoxid','nitrogenOxide', 'k2')">
 
                     <div class="slider round stickoxid"></div>
                 </label>

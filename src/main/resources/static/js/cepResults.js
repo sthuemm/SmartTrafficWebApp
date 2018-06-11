@@ -47,52 +47,52 @@ var getTrafficLightValues = function (trafficLightId) {
             var ntoORtw = result["ntoORtw"];
 
             if (typeof stoSRtw !== 'undefined'){
-                setTableValue("#"+trafficLightId+"stoSRtw", stoSRtw.arrow);
+                setTableValue("#"+trafficLightId+"stoSRtw", stoSRtw);
             }
             if (typeof wtoWRtw !== 'undefined'){
-                setTableValue("#"+trafficLightId+"wtoWRtw", wtoWRtw.arrow);
+                setTableValue("#"+trafficLightId+"wtoWRtw", wtoWRtw);
             }
             if (typeof otoORtw !== 'undefined'){
-                setTableValue("#"+trafficLightId+"otoORtw", otoORtw.arrow);
+                setTableValue("#"+trafficLightId+"otoORtw", otoORtw);
             }
             if (typeof ntoNRtw !== 'undefined'){
-                setTableValue("#"+trafficLightId+"ntoNRtw", ntoNRtw.arrow);
+                setTableValue("#"+trafficLightId+"ntoNRtw", ntoNRtw);
             }
             if (typeof ntoWRtw !== 'undefined'){
-                setTableValue("#"+trafficLightId+"ntoWRtw", ntoWRtw.arrow);
+                setTableValue("#"+trafficLightId+"ntoWRtw", ntoWRtw);
             }
             if (typeof ntoSRtw !== 'undefined'){
-                setTableValue("#"+trafficLightId+"ntoSRtw", ntoSRtw.arrow);
+                setTableValue("#"+trafficLightId+"ntoSRtw", ntoSRtw);
             }
             if (typeof ntoORtw !== 'undefined'){
-                setTableValue("#"+trafficLightId+"ntoORtw", ntoORtw.arrow);
+                setTableValue("#"+trafficLightId+"ntoORtw", ntoORtw);
             }
             if(typeof stoNRtw !== 'undefined'){
-                setTableValue("#"+trafficLightId+"stoNRtw", stoNRtw.arrow);
+                setTableValue("#"+trafficLightId+"stoNRtw", stoNRtw);
             }
             if(typeof stoWRtw !== 'undefined'){
-                setTableValue("#"+trafficLightId+"stoWRtw", stoWRtw.arrow);
+                setTableValue("#"+trafficLightId+"stoWRtw", stoWRtw);
             }
             if(typeof stoORtw !== 'undefined'){
-                setTableValue("#"+trafficLightId+"stoORtw", stoORtw.arrow);
+                setTableValue("#"+trafficLightId+"stoORtw", stoORtw);
             }
             if(typeof wtoORtw !== 'undefined'){
-                setTableValue("#"+trafficLightId+"wtoORtw", wtoORtw.arrow);
+                setTableValue("#"+trafficLightId+"wtoORtw", wtoORtw);
             }
             if (typeof wtoNRtw !== 'undefined'){
-                setTableValue("#"+trafficLightId+"wtoNRtw", wtoNRtw.arrow);
+                setTableValue("#"+trafficLightId+"wtoNRtw", wtoNRtw);
             }
             if (typeof wtoSRtw !== 'undefined'){
-                setTableValue("#"+trafficLightId+"wtoSRtw", wtoSRtw.arrow);
+                setTableValue("#"+trafficLightId+"wtoSRtw", wtoSRtw);
             }
             if (typeof otoNRtw !== 'undefined'){
-                setTableValue("#"+trafficLightId+"otoNRtw", otoNRtw.arrow);
+                setTableValue("#"+trafficLightId+"otoNRtw", otoNRtw);
             }
             if (typeof otoWRtw !== 'undefined'){
-                setTableValue("#"+trafficLightId+"otoWRtw", otoWRtw.arrow);
+                setTableValue("#"+trafficLightId+"otoWRtw", otoWRtw);
             }
             if (typeof otoSRtw !== 'undefined'){
-                setTableValue("#"+trafficLightId+"otoSRtw", otoSRtw.arrow);
+                setTableValue("#"+trafficLightId+"otoSRtw", otoSRtw);
             }
 
             var stoN = result["stoN"];
@@ -113,55 +113,54 @@ var getTrafficLightValues = function (trafficLightId) {
             var ntoO = result["ntoO"];
 
             if(typeof stoS !== 'undefined'){
-                setTableValue("#"+trafficLightId+"stoS", stoS.arrow);
+                setTableValue("#"+trafficLightId+"stoS", stoS);
             }
             if(typeof wtoW !== 'undefined'){
-                setTableValue("#"+trafficLightId+"wtoW", wtoW.arrow);
+                setTableValue("#"+trafficLightId+"wtoW", wtoW);
             }
             if(typeof otoO !== 'undefined'){
-                setTableValue("#"+trafficLightId+"otoO", otoO.arrow);
+                setTableValue("#"+trafficLightId+"otoO", otoO);
             }
             if(typeof ntoN !== 'undefined'){
-                setTableValue("#"+trafficLightId+"ntoN", ntoN.arrow);
+                setTableValue("#"+trafficLightId+"ntoN", ntoN);
             }
             if(typeof ntoW !== 'undefined'){
-                setTableValue("#"+trafficLightId+"ntoW", ntoW.arrow);
+                setTableValue("#"+trafficLightId+"ntoW", ntoW);
             }
             if(typeof ntoS !== 'undefined'){
-                setTableValue("#"+trafficLightId+"ntoS", ntoS.arrow);
+                setTableValue("#"+trafficLightId+"ntoS", ntoS);
             }
             if(typeof ntoO !== 'undefined'){
-                setTableValue("#"+trafficLightId+"ntoO", ntoO.arrow);
+                setTableValue("#"+trafficLightId+"ntoO", ntoO);
             }
 
             if(typeof stoN !== 'undefined'){
-                setTableValue("#"+trafficLightId+"stoN", stoN.arrow);
+                setTableValue("#"+trafficLightId+"stoN", stoN);
             }
             if(typeof stoW !== 'undefined'){
-                setTableValue("#"+trafficLightId+"stoW", stoW.arrow);
+                setTableValue("#"+trafficLightId+"stoW", stoW);
             }
             if(typeof stoO !== 'undefined'){
-                setTableValue("#"+trafficLightId+"stoO", stoO.arrow);
+                setTableValue("#"+trafficLightId+"stoO", stoO);
             }
             if(typeof otoW !== 'undefined'){
-                console.log("#"+trafficLightId+"otoW "+ otoW.arrow)
-                setTableValue("#"+trafficLightId+"otoW", otoW.arrow);
+                setTableValue("#"+trafficLightId+"otoW", otoW);
             }
             if (typeof wtoO !== 'undefined'){
 
-                setTableValue("#"+trafficLightId+"wtoO", wtoO.arrow);
+                setTableValue("#"+trafficLightId+"wtoO", wtoO);
             }
             if (typeof wtoN !== 'undefined'){
-                setTableValue("#"+trafficLightId+"wtoN", wtoN.arrow);
+                setTableValue("#"+trafficLightId+"wtoN", wtoN);
             }
             if (typeof otoN !== 'undefined'){
-                setTableValue("#"+trafficLightId+"otoN", otoN.arrow);
+                setTableValue("#"+trafficLightId+"otoN", otoN);
             }
             if (typeof wtoS !== 'undefined'){
-                setTableValue("#"+trafficLightId+"wtoS", wtoS.arrow);
+                setTableValue("#"+trafficLightId+"wtoS", wtoS);
             }
             if (typeof otoS !== 'undefined'){
-                setTableValue("#"+trafficLightId+"otoS", otoS.arrow);
+                setTableValue("#"+trafficLightId+"otoS", otoS);
             }
 
         }
@@ -171,7 +170,12 @@ var getTrafficLightValues = function (trafficLightId) {
 var setTableValue = function(elementId, value){
     // console.log("value: "+elementId)
     var element = $(elementId);
-    element.html("<i class='fa fa-arrow-"+value+"' style='font-size:24px'></i>");
+    if(value.incident){
+        element.html("<i class='fa fa-arrow-"+value.arrow+"' style='font-size:24px;color:red'></i>");
+    } else {
+        element.html("<i class='fa fa-arrow-"+value.arrow+"' style='font-size:24px;color:black'></i>");
+    }
+
     // console.log(element)
 }
 

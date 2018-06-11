@@ -14,6 +14,7 @@ public class TrafficLight {
     private String id;
     private String description;
     private String arrow;
+    private boolean incident;
 
 
 }
