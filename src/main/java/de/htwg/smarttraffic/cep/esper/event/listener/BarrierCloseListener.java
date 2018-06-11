@@ -18,7 +18,14 @@ public class BarrierCloseListener implements UpdateListener {
         intersection.getTrafficLights().put("otoW", new TrafficLight("otoW", "W <--> O", "up"));
         intersection.getTrafficLights().put("otoWRtw", new TrafficLight("otoWRtw", "W <--> O", "up"));
         Casestudy.getInstance().getIntersectionMap().put("k3", intersection);
-        log.info("Kreuzungen:" +Casestudy.getInstance().getIntersectionMap().get("k3"));
+
+        Intersection intersectionk1 = Casestudy.getInstance().getIntersectionMap().get("k1");
+        intersectionk1.getTrafficLights().put("stoO", new TrafficLight("stoO", "W <--> O", "up"));
+        intersectionk1.getTrafficLights().put("stoORtw", new TrafficLight("stoORtw", "W <--> O", "up"));
+        intersectionk1.getTrafficLights().put("wtoO", new TrafficLight("wtoO", "W <--> O", "up"));
+        intersectionk1.getTrafficLights().put("wtoORtw", new TrafficLight("wtoORtw", "W <--> O", "up"));
+        Casestudy.getInstance().getIntersectionMap().put("k1", intersectionk1);
+
     }
 
 }

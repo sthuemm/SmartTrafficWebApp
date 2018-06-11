@@ -144,6 +144,7 @@ var getTrafficLightValues = function (trafficLightId) {
                 setTableValue("#"+trafficLightId+"stoO", stoO.arrow);
             }
             if(typeof otoW !== 'undefined'){
+                console.log("#"+trafficLightId+"otoW "+ otoW.arrow)
                 setTableValue("#"+trafficLightId+"otoW", otoW.arrow);
             }
             if (typeof wtoO !== 'undefined'){
