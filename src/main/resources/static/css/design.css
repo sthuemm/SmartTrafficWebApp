@@ -1,0 +1,49 @@
+body {
+    background-image: url("../img/Strassenkarte.jpeg");
+}
+
+.table {
+    width: 200px !important;
+}
+
+#k1fromEast {
+    position: absolute;
+    left: 18%;
+    top: 42%;
+}
+
+#k1fromNorth {
+    position: absolute;
+    left: 4%;
+    top: 42%;
+}
+
+#k1fromWest {
+    position: absolute;
+    left: 4%;
+    top: 68%;
+}
+
+#k1fromSouth {
+    position: absolute;
+    left: 18%;
+    top: 68%;
+}
+
+#k3fromEast {
+    position: absolute;
+    left: 77%;
+    top: 42%;
+}
+
+#k3fromNorth {
+    position: absolute;
+    left: 64%;
+    top: 42%;
+}
+
+#k3fromWest {
+    position: absolute;
+    left: 64%;
+    top: 68%;
+}

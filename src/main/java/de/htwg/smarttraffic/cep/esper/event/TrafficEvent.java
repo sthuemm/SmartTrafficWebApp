@@ -24,7 +24,6 @@ public class TrafficEvent {
 
     public TrafficEvent(String direction){
         this.direction = direction;
-        System.out.println("new TrafficEvent: "+new Date()+ " Richtung: "+direction);
     }
 
 

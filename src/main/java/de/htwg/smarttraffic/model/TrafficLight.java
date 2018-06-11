@@ -1,47 +1,19 @@
 package de.htwg.smarttraffic.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class TrafficLight {
 
     private String id;
     private String description;
-    private int value;
+    private String arrow;
 
-    public TrafficLight(String id, String description, int value){
-        this.id = id;
-        this.description = description;
-        this.value = value;
-    }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
-    @Override
-    public String toString() {
-        return "TrafficLight{" +
-                "id='" + id + '\'' +
-                ", description='" + description + '\'' +
-                ", value=" + value +
-                '}';
-    }
 }
