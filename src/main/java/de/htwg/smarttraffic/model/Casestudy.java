@@ -1,15 +1,24 @@
 package de.htwg.smarttraffic.model;
 
 import com.espertech.esper.client.EPStatement;
+
 import com.espertech.esper.client.EventBean;
-import com.espertech.esper.client.UpdateListener;
 import de.htwg.smarttraffic.cep.esper.EsperRuntime;
 import de.htwg.smarttraffic.cep.esper.EsperServiceProvider;
+
+import de.htwg.smarttraffic.cep.esper.event.listener.*;
+import de.htwg.smarttraffic.cep.esper.event.statement.EspStatements;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
+@Getter
+@Setter
+@Slf4j
 public class Casestudy {
 
     private static Casestudy instance;
@@ -25,13 +34,13 @@ public class Casestudy {
 
     private Casestudy(){
         this.intersectionMap = new HashMap<>();
-        Intersection k1 = new Intersection(Intersection.IntersectionType.WNO);
+        Intersection k1 = new Intersection(Intersection.IntersectionType.WNOS);
         Intersection k2 = new Intersection(Intersection.IntersectionType.WNOS);
         Intersection k3 = new Intersection(Intersection.IntersectionType.WNO);
 
-        intersectionMap.put("K1", k1);
-        intersectionMap.put("K2", k2);
-        intersectionMap.put("K3", k3);
+        intersectionMap.put("k1", k1);
+        intersectionMap.put("k2", k2);
+        intersectionMap.put("k3", k3);
 
         this.eventStream = new EventStream(esperRuntime);
         setStatements();
@@ -53,36 +62,21 @@ public class Casestudy {
     }
 
     private void setStatements(){
-        EPStatement barrierCloseStatement = EsperServiceProvider.getInstance().getEPAdministrator()
-                .createEPL("select railwayCrossing from RailroadCrossingBarrierCloseEvent");
-        barrierCloseStatement.addListener((newEvents, oldEvents) -> {
-            System.out.println("RailroadCrossingBarrierCloseEvent: " + newEvents[0].getUnderlying());
-
-            Intersection intersection = getInstance().getIntersectionMap().get("K3");
-            intersection.getTrafficLights().put("wtoO", new TrafficLight("wtoO", "W <--> O", 0));
-            getInstance().getIntersectionMap().put("K3", intersection);
-            System.out.println("Kreuzungen:" +getInstance().getIntersectionMap().get("K3"));
-        });
-
-        EPStatement barrierOpenStatement = EsperServiceProvider.getInstance().getEPAdministrator()
-                .createEPL("select railwayCrossing from RailroadCrossingBarrierOpenEvent");
-        barrierOpenStatement.addListener((newEvents, oldEvents) -> {
-            System.out.println("RailroadCrossingBarrierOpenEvent: " + newEvents[0].getUnderlying());
-            Intersection intersection = getInstance().getIntersectionMap().get("K3");
-            intersection.getTrafficLights().put("wtoO", new TrafficLight("wtoO", "W <--> O", 2));
-            getInstance().getIntersectionMap().put("K3", intersection);
-            System.out.println("Kreuzungen:" +getInstance().getIntersectionMap().get("K3"));
-        });
+        EspStatements.setBarrierCloseStatement();
+        EspStatements.setBarrierOpenStatement();
+        EspStatements.setAccidentStartStatement();
+        EspStatements.setAccidentEndStatement();
+        EspStatements.setNitroOxigenHighStatement();
+        EspStatements.setNitroOxigenStillHighAfterXMinutes("k2");
+//        EspStatements.setNitroOxigenLowStatement();
 
     }
 
-    public EventStream getEventStream() {
-        return eventStream;
-    }
 
-    public void setEventStream(EventStream eventStream) {
-        this.eventStream = eventStream;
-    }
+
+
+
+
 
 
 

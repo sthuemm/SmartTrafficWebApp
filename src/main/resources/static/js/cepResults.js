@@ -1,8 +1,8 @@
 $(document).ready(function(){
     window.setInterval(function(){
-        getTrafficLightValues("K1");
-        getTrafficLightValues("K2");
-        getTrafficLightValues("K3");
+        getTrafficLightValues("k1");
+        // getTrafficLightValues("k2");
+        getTrafficLightValues("k3");
 
     }, 1000)
 })
@@ -16,7 +16,7 @@ var updateTrafficPerMinute = function(id){
         contentType : "application/json",
         data: value,
         success: function (response) {
-            console.log(response)
+            // console.log(response)
         }
 
     })
@@ -26,38 +26,157 @@ var getTrafficLightValues = function (trafficLightId) {
     $.ajax({
         url: "/trafficLight/"+trafficLightId,
         success: function (result) {
-            console.log(result);
+            // console.log(result);
+
+
+            var stoNRtw = result["stoNRtw"];
+            var stoWRtw = result["stoWRtw"];
+            var stoORtw = result["stoORtw"];
+            var stoSRtw = result["stoSRtw"];
+            var wtoORtw = result["wtoORtw"];
+            var wtoNRtw = result["wtoNRtw"];
+            var wtoSRtw = result["wtoSRtw"];
+            var wtoWRtw = result["wtoWRtw"];
+            var otoNRtw = result["otoNRtw"];
+            var otoWRtw = result["otoWRtw"];
+            var otoSRtw = result["otoSRtw"];
+            var otoORtw = result["otoORtw"];
+            var ntoNRtw = result["ntoNRtw"];
+            var ntoWRtw = result["ntoWRtw"];
+            var ntoSRtw = result["ntoSRtw"];
+            var ntoORtw = result["ntoORtw"];
+
+            if (typeof stoSRtw !== 'undefined'){
+                setTableValue("#"+trafficLightId+"stoSRtw", stoSRtw);
+            }
+            if (typeof wtoWRtw !== 'undefined'){
+                setTableValue("#"+trafficLightId+"wtoWRtw", wtoWRtw);
+            }
+            if (typeof otoORtw !== 'undefined'){
+                setTableValue("#"+trafficLightId+"otoORtw", otoORtw);
+            }
+            if (typeof ntoNRtw !== 'undefined'){
+                setTableValue("#"+trafficLightId+"ntoNRtw", ntoNRtw);
+            }
+            if (typeof ntoWRtw !== 'undefined'){
+                setTableValue("#"+trafficLightId+"ntoWRtw", ntoWRtw);
+            }
+            if (typeof ntoSRtw !== 'undefined'){
+                setTableValue("#"+trafficLightId+"ntoSRtw", ntoSRtw);
+            }
+            if (typeof ntoORtw !== 'undefined'){
+                setTableValue("#"+trafficLightId+"ntoORtw", ntoORtw);
+            }
+            if(typeof stoNRtw !== 'undefined'){
+                setTableValue("#"+trafficLightId+"stoNRtw", stoNRtw);
+            }
+            if(typeof stoWRtw !== 'undefined'){
+                setTableValue("#"+trafficLightId+"stoWRtw", stoWRtw);
+            }
+            if(typeof stoORtw !== 'undefined'){
+                setTableValue("#"+trafficLightId+"stoORtw", stoORtw);
+            }
+            if(typeof wtoORtw !== 'undefined'){
+                setTableValue("#"+trafficLightId+"wtoORtw", wtoORtw);
+            }
+            if (typeof wtoNRtw !== 'undefined'){
+                setTableValue("#"+trafficLightId+"wtoNRtw", wtoNRtw);
+            }
+            if (typeof wtoSRtw !== 'undefined'){
+                setTableValue("#"+trafficLightId+"wtoSRtw", wtoSRtw);
+            }
+            if (typeof otoNRtw !== 'undefined'){
+                setTableValue("#"+trafficLightId+"otoNRtw", otoNRtw);
+            }
+            if (typeof otoWRtw !== 'undefined'){
+                setTableValue("#"+trafficLightId+"otoWRtw", otoWRtw);
+            }
+            if (typeof otoSRtw !== 'undefined'){
+                setTableValue("#"+trafficLightId+"otoSRtw", otoSRtw);
+            }
+
             var stoN = result["stoN"];
+            var stoW = result["stoW"];
+            var stoO = result["stoO"];
+            var stoS = result["stoS"];
             var wtoO = result["wtoO"];
             var wtoN = result["wtoN"];
-            var otoN = result["otoN"];
             var wtoS = result["wtoS"];
+            var wtoW = result["wtoW"];
+            var otoN = result["otoN"];
+            var otoW = result["otoW"];
             var otoS = result["otoS"];
-            var wtoNOtoS = result["wtoNOtoS"];
-            if(typeof stoN !== 'undefined'){
-                setTableValue("#stoN."+trafficLightId, stoN.value);
-            } if (typeof wtoO !== 'undefined'){
-                setTableValue("#wtoO."+trafficLightId, wtoO.value);
-            } if (typeof wtoN !== 'undefined'){
-                setTableValue("#wtoN."+trafficLightId, wtoN.value);
-            } if (typeof otoN !== 'undefined'){
-                setTableValue("#otoN."+trafficLightId, otoN.value);
-            } if (typeof wtoS !== 'undefined'){
-                setTableValue("#wtoS."+trafficLightId, wtoS.value);
-            } if (typeof otoS !== 'undefined'){
-                setTableValue("#otoS."+trafficLightId, otoS.value);
-            } if (typeof wtoNOtoS !== 'undefined'){
-                setTableValue("#wtoNOtoS."+trafficLightId, wtoNOtoS.value);
+            var otoO = result["otoO"];
+            var ntoN = result["ntoN"];
+            var ntoW = result["ntoW"];
+            var ntoS = result["ntoS"];
+            var ntoO = result["ntoO"];
+
+            if(typeof stoS !== 'undefined'){
+                setTableValue("#"+trafficLightId+"stoS", stoS);
             }
+            if(typeof wtoW !== 'undefined'){
+                setTableValue("#"+trafficLightId+"wtoW", wtoW);
+            }
+            if(typeof otoO !== 'undefined'){
+                setTableValue("#"+trafficLightId+"otoO", otoO);
+            }
+            if(typeof ntoN !== 'undefined'){
+                setTableValue("#"+trafficLightId+"ntoN", ntoN);
+            }
+            if(typeof ntoW !== 'undefined'){
+                setTableValue("#"+trafficLightId+"ntoW", ntoW);
+            }
+            if(typeof ntoS !== 'undefined'){
+                setTableValue("#"+trafficLightId+"ntoS", ntoS);
+            }
+            if(typeof ntoO !== 'undefined'){
+                setTableValue("#"+trafficLightId+"ntoO", ntoO);
+            }
+
+            if(typeof stoN !== 'undefined'){
+                setTableValue("#"+trafficLightId+"stoN", stoN);
+            }
+            if(typeof stoW !== 'undefined'){
+                setTableValue("#"+trafficLightId+"stoW", stoW);
+            }
+            if(typeof stoO !== 'undefined'){
+                setTableValue("#"+trafficLightId+"stoO", stoO);
+            }
+            if(typeof otoW !== 'undefined'){
+                setTableValue("#"+trafficLightId+"otoW", otoW);
+            }
+            if (typeof wtoO !== 'undefined'){
+
+                setTableValue("#"+trafficLightId+"wtoO", wtoO);
+            }
+            if (typeof wtoN !== 'undefined'){
+                setTableValue("#"+trafficLightId+"wtoN", wtoN);
+            }
+            if (typeof otoN !== 'undefined'){
+                setTableValue("#"+trafficLightId+"otoN", otoN);
+            }
+            if (typeof wtoS !== 'undefined'){
+                setTableValue("#"+trafficLightId+"wtoS", wtoS);
+            }
+            if (typeof otoS !== 'undefined'){
+                setTableValue("#"+trafficLightId+"otoS", otoS);
+            }
+
         }
     })
 }
 
 var setTableValue = function(elementId, value){
-    console.log("value: "+elementId)
+    // console.log("value: "+elementId)
     var element = $(elementId);
-    element.html(value);
-    console.log(element)
+    if(value.incident){
+        element.html("<i class='fa fa-arrow-"+value.arrow+"' style='font-size:24px;color:red'></i>");
+    } else {
+        element.html("<i class='fa fa-arrow-"+value.arrow+"' style='font-size:24px;color:black'></i>");
+    }
+
+    // console.log(element)
 }
 
 var changeCheckbox = function (id, incident, place) {
