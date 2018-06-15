@@ -25,6 +25,8 @@ public class BarrierOpenListener implements UpdateListener {
             intersectionk1.getTrafficLights().put("wtoO", new TrafficLight("wtoO", "W <--> O", "right", false));
             intersectionk1.getTrafficLights().put("wtoORtw", new TrafficLight("wtoORtw", "W <--> O", "right", false));
             Casestudy.getInstance().getIntersectionMap().put("k1", intersectionk1);
+
+            Casestudy.getInstance().getIncidents().setBarrierS1(false);
         }
     }
 }

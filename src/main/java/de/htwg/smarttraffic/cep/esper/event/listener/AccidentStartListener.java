@@ -26,6 +26,7 @@ public class AccidentStartListener implements UpdateListener {
             intersectionk1.getTrafficLights().put("wtoO", new TrafficLight("wtoO", "W <--> O", "up", true));
 
             Casestudy.getInstance().getIntersectionMap().put("k1", intersectionk1);
+            Casestudy.getInstance().getIncidents().setAccidentK2(true);
         }
 
     }

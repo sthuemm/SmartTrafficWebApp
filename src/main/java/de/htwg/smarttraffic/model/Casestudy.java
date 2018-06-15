@@ -27,6 +27,8 @@ public class Casestudy {
 
     private EventStream eventStream;
 
+    private Incidents incidents;
+
 
 
     @Resource
@@ -43,6 +45,7 @@ public class Casestudy {
         intersectionMap.put("k3", k3);
 
         this.eventStream = new EventStream(esperRuntime);
+        this.incidents = new Incidents();
         setStatements();
     }
 

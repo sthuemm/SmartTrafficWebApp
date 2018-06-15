@@ -42,6 +42,12 @@ public class HomeController {
         return new ResponseEntity<>(intersection.getTrafficLights(), HttpStatus.OK);
     }
 
+    @GetMapping("/incidents")
+    public ResponseEntity getIncidents(){
+        return new ResponseEntity<>(casestudy.getIncidents(), HttpStatus.OK);
+
+    }
+
     @PostMapping("/railroad/{place}")
     public ResponseEntity setRailroadBarrier(@RequestBody String isRailroadBarrierDown, @PathVariable String place){
         if(Boolean.parseBoolean(isRailroadBarrierDown)){

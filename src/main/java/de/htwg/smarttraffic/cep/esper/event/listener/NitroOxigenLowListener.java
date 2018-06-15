@@ -41,6 +41,9 @@ public class NitroOxigenLowListener implements UpdateListener {
             intersectionk1.getTrafficLights().put("stoN", new TrafficLight("stoO", "W <--> O", "right", false));
             intersectionk1.getTrafficLights().put("ntoN", new TrafficLight("stoO", "W <--> O", "right", false));
             intersectionk1.getTrafficLights().put("wtoN", new TrafficLight("wtoO", "W <--> O", "right", false));
+
+            Casestudy.getInstance().getIncidents().setNitroOxideK2(false);
+            Casestudy.getInstance().getIncidents().setNitroOxideLongHigh(false);
         }
     }
 }

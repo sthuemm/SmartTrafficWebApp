@@ -1,5 +1,5 @@
 body {
-    background-image: url("../img/Strassenkarte.jpeg");
+    background-image: url("../img/1_InitialStreetMap_Final.png");
 }
 
 .table {
@@ -9,41 +9,41 @@ body {
 #k1fromEast {
     position: absolute;
     left: 18%;
-    top: 42%;
+    top: 40%;
 }
 
 #k1fromNorth {
     position: absolute;
     left: 4%;
-    top: 42%;
+    top: 40%;
 }
 
 #k1fromWest {
     position: absolute;
     left: 4%;
-    top: 68%;
+    top: 64%;
 }
 
 #k1fromSouth {
     position: absolute;
     left: 18%;
-    top: 68%;
+    top: 64%;
 }
 
 #k3fromEast {
     position: absolute;
-    left: 77%;
-    top: 42%;
+    left: 75%;
+    top: 40%;
 }
 
 #k3fromNorth {
     position: absolute;
-    left: 64%;
-    top: 42%;
+    left: 63%;
+    top: 40%;
 }
 
 #k3fromWest {
     position: absolute;
     left: 64%;
-    top: 68%;
+    top: 64%;
 }

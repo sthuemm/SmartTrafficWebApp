@@ -26,6 +26,7 @@ public class AccidentEndListener implements UpdateListener {
             intersectionk1.getTrafficLights().put("wtoO", new TrafficLight("wtoO", "W <--> O", "right", false));
 
             Casestudy.getInstance().getIntersectionMap().put("k1", intersectionk1);
+            Casestudy.getInstance().getIncidents().setAccidentK2(false);
         }
     }
 }

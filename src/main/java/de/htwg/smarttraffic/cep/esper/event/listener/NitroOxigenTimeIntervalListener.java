@@ -48,6 +48,9 @@ public class NitroOxigenTimeIntervalListener implements UpdateListener {
             intersectionk1.getTrafficLights().put("wtoN", new TrafficLight("wtoO", "W <--> O", "up", true));
 
             Casestudy.getInstance().getIntersectionMap().put("k1", intersectionk1);
+
+        Casestudy.getInstance().getIncidents().setNitroOxideLongHigh(true);
+
 //        } else if(crossing.equals("k2") && eventBean.get("rate(10)") != null) {
 //            originStatement.removeAllListeners();
 //            originStatement.destroy();

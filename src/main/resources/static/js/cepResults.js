@@ -1,11 +1,62 @@
 $(document).ready(function(){
+    connectToWebSocket();
     window.setInterval(function(){
         getTrafficLightValues("k1");
         // getTrafficLightValues("k2");
         getTrafficLightValues("k3");
-
+        getIncidents();
     }, 1000)
 })
+
+var stompClient = null;
+var connectToWebSocket = function () {
+    var socket = new SockJS("/smarttraffic");
+    stompClient = Stomp.over(socket);
+    stompClient.connect({}, function (frame) {
+        console.log("connected: "+frame);
+        stompClient.subscribe("/incident/event", function (event) {
+
+
+        })
+
+    })
+};
+
+var getIncidents = function(){
+    $.ajax({
+        url: "/incidents/",
+        success: function (result) {
+            var barrierClosed = result["barrierS1"];
+            var accidentHappened = result["accidentK2"];
+            var nitroOxideHigh = result["nitroOxideK2"];
+            var nitroOxideLongHigh = result["nitroOxideLongHigh"];
+            //schranke unten, sonst nix
+            if(barrierClosed && !accidentHappened && !nitroOxideHigh && !nitroOxideLongHigh){
+                $("#home_body").css("background-image", "url(../img/2_BahnschrankeUnten_Final.png)");
+            }
+            //schranke oben, sonst nix
+            if(!barrierClosed && !accidentHappened && !nitroOxideHigh && !nitroOxideLongHigh){
+                $("#home_body").css("background-image", "url(../img/1_InitialStreetMap_Final.png)");
+            }
+            //unfall, sonst nix
+            if(!barrierClosed && accidentHappened && !nitroOxideHigh && !nitroOxideLongHigh){
+                $("#home_body").css("background-image", "url(../img/3_UnfallMitBahnschrankeOben_Final.png)");
+            }
+            //unfall, schranke unten
+            if(barrierClosed && accidentHappened && !nitroOxideHigh && !nitroOxideLongHigh){
+                $("#home_body").css("background-image", "url(../img/4_UnfallMitBahnschrankeUnten_Final.png)");
+            }
+            //stickstoffsensor alarm
+            if(nitroOxideHigh && !nitroOxideLongHigh){
+                $("#home_body").css("background-image", "url(../img/5_StickstoffsensorAlarm.png)");
+            }
+            //stickstoffsensor lange hoch
+            if(nitroOxideHigh && nitroOxideLongHigh){
+                $("#home_body").css("background-image", "url(../img/6_StickstoffsensorUmleitung.png)");
+            }
+        }
+    })
+}
 
 var updateTrafficPerMinute = function(id){
     var value = $("#traffic"+id).val();
@@ -180,8 +231,9 @@ var setTableValue = function(elementId, value){
 }
 
 var changeCheckbox = function (id, incident, place) {
+    stompClient.send("/esp/incident", {}, JSON.stringify({'event':incident, 'crossing':place}));
     var data = $("#"+id).is(':checked');
-    console.log(data);
+
     $.ajax({
         url: "/"+incident+"/"+place,
         type: "POST",
@@ -191,4 +243,11 @@ var changeCheckbox = function (id, incident, place) {
             console.log(result)
         }
     })
+
+    var barrier = $("#switch-railroad");
+    var accident = $("#switch-unfall");
+    var nitrooxygen = $("#switch-stickoxid");
+    console.log(barrier.is(":checked"));
+
+
 }

@@ -30,6 +30,8 @@ public class NitroOxigenHighListener implements UpdateListener {
 
 
             Casestudy.getInstance().getIntersectionMap().put("k1", intersectionk1);
+
+            Casestudy.getInstance().getIncidents().setNitroOxideK2(true);
         }
     }
 }
