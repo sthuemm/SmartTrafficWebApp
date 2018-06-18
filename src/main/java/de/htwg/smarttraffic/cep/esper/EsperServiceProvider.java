@@ -9,6 +9,9 @@ import de.htwg.smarttraffic.cep.esper.event.environment.NitrogenOxideEndEvent;
 import de.htwg.smarttraffic.cep.esper.event.environment.NitrogenOxideStartEvent;
 import de.htwg.smarttraffic.cep.esper.event.railroad.RailroadCrossingBarrierCloseEvent;
 import de.htwg.smarttraffic.cep.esper.event.railroad.RailroadCrossingBarrierOpenEvent;
+import de.htwg.smarttraffic.cep.esper.event.traffic.TrafficStartEvent;
+import de.htwg.smarttraffic.cep.esper.event.traffic.TrafficEndEvent;
+
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -42,6 +45,8 @@ public class EsperServiceProvider {
         configuration.addEventType("AccidentStartEvent", AccidentStartEvent.class.getTypeName());
         configuration.addEventType("NitrogenOxideStartEvent", NitrogenOxideStartEvent.class.getTypeName());
         configuration.addEventType("NitrogenOxideEndEvent", NitrogenOxideEndEvent.class.getTypeName());
+        configuration.addEventType("TrafficStartEvent", TrafficStartEvent.class.getTypeName());
+        configuration.addEventType("TrafficEndEvent", TrafficEndEvent.class.getTypeName());
         return configuration;
     }
 

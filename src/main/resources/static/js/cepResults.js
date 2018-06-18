@@ -30,6 +30,9 @@ var getIncidents = function(){
             var accidentHappened = result["accidentK2"];
             var nitroOxideHigh = result["nitroOxideK2"];
             var nitroOxideLongHigh = result["nitroOxideLongHigh"];
+            var trafficHigh = result["trafficK2"];
+            var setTrafficLongHigh = result["setTrafficLongHigh"];
+
             //schranke unten, sonst nix
             if(barrierClosed && !accidentHappened && !nitroOxideHigh && !nitroOxideLongHigh){
                 $("#home_body").css("background-image", "url(../img/2_BahnschrankeUnten_Final.png)");
@@ -54,6 +57,15 @@ var getIncidents = function(){
             if(nitroOxideHigh && nitroOxideLongHigh){
                 $("#home_body").css("background-image", "url(../img/6_StickstoffsensorUmleitung.png)");
             }
+            //Verkehrssensor Alarm
+            if(trafficHigh && !setTrafficLongHigh){
+                $("#home_body").css("background-image", "url(../img/7_StauAlarm.png)");
+            }
+
+            //Verkehrssensor Alarm Umleitung
+            if(trafficHigh && setTrafficLongHigh){
+                $("#home_body").css("background-image", "url(../img/8_StauUmleitung.png)");
+            }
         }
     })
 }
@@ -67,7 +79,9 @@ var updateTrafficPerMinute = function(id){
         contentType : "application/json",
         data: value,
         success: function (response) {
-            // console.log(response)
+
+
+             console.log(response)
         }
 
     })

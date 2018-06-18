@@ -91,7 +91,16 @@ public class HomeController {
     @PutMapping("/trafficPerMinute/{direction}")
     public ResponseEntity updateTrafficPerMinute(@RequestBody String newTrafficPerMinute, @PathVariable String direction){
 
-        casestudy.getEventStream().setTrafficNtoW(Integer.parseInt(newTrafficPerMinute));
+        if(Integer.parseInt(newTrafficPerMinute) >= 20 && direction.equals("OtoW")) {
+            log.info("Traffic High: "+direction );
+            log.info("Incoming Traffic: "+ newTrafficPerMinute);
+            triggerEventService.triggerTrafficDirectionHighEvent(direction);
+        }
+        else{
+            triggerEventService.triggerTrafficDirectionLowEvent(direction);
+        }
+
+        //casestudy.getEventStream().setTrafficNtoW(Integer.parseInt(newTrafficPerMinute));
 
         return new ResponseEntity<>(HttpStatus.OK);
     }

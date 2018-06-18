@@ -10,6 +10,24 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class EspStatements {
 
+    public static void setTrafficHighStatement(){
+        EPStatement statement = EsperServiceProvider.getInstance().getEPAdministrator()
+                .createEPL("select direction from TrafficStartEvent");
+        statement.addListener(new TrafficStartListener());
+    }
+
+    public static void setTraffiStillHighAfterXMinutesStatement(String direction){
+        EPStatement statementTrafficLow = EsperServiceProvider.getInstance().getEPAdministrator()
+                .createEPL("select a,b from pattern [every a = TrafficStartEvent(direction = 'OtoW') -> (timer:interval(10 seconds) and b = TrafficEndEvent(direction = a.direction))]");
+        TrafficEndListener trafficEndListener = new TrafficEndListener(direction);
+        statementTrafficLow.addListener(trafficEndListener);
+
+        EPStatement statementTrafficStillHigh = EsperServiceProvider.getInstance().getEPAdministrator()
+                .createEPL("select a,b from pattern [every a = TrafficStartEvent(direction = 'OtoW') -> (timer:interval(10 seconds) and not b = TrafficEndEvent(direction = a.direction))]");
+        statementTrafficStillHigh.addListener(new TrafficTimeIntervalListener(direction));
+    }
+
+
     public static void setAccidentStartStatement(){
         EPStatement statement = EsperServiceProvider.getInstance().getEPAdministrator()
                 .createEPL("select crossing from AccidentStartEvent");
@@ -51,6 +69,12 @@ public class EspStatements {
         EPStatement statement = EsperServiceProvider.getInstance().getEPAdministrator()
                 .createEPL("select railwayCrossing from RailroadCrossingBarrierOpenEvent");
         statement.addListener(new BarrierOpenListener());
+    }
+
+    public static void set(){
+        EPStatement statement = EsperServiceProvider.getInstance().getEPAdministrator()
+                .createEPL("select crossing from NitrogenOxideStartEvent");
+        statement.addListener(new NitroOxigenHighListener());
     }
 
 

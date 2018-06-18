@@ -7,6 +7,8 @@ import de.htwg.smarttraffic.cep.esper.event.environment.NitrogenOxideEndEvent;
 import de.htwg.smarttraffic.cep.esper.event.environment.NitrogenOxideStartEvent;
 import de.htwg.smarttraffic.cep.esper.event.railroad.RailroadCrossingBarrierCloseEvent;
 import de.htwg.smarttraffic.cep.esper.event.railroad.RailroadCrossingBarrierOpenEvent;
+import de.htwg.smarttraffic.cep.esper.event.traffic.TrafficStartEvent;
+import de.htwg.smarttraffic.cep.esper.event.traffic.TrafficEndEvent;
 import org.springframework.stereotype.Service;
 
 
@@ -35,6 +37,14 @@ public class TriggerEventService {
 
     public void triggerNitrooxigenCrossingLowEvent(String railwayCrossing){
         EsperRuntime.getInstance().sendEvent(new NitrogenOxideEndEvent(railwayCrossing));
+    }
+
+    public void triggerTrafficDirectionHighEvent(String direction){
+        EsperRuntime.getInstance().sendEvent(new TrafficStartEvent(direction));
+    }
+
+    public void triggerTrafficDirectionLowEvent(String direction){
+        EsperRuntime.getInstance().sendEvent(new TrafficEndEvent(direction));
     }
 
 }

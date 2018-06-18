@@ -15,4 +15,8 @@ public class Incidents {
 
     private boolean nitroOxideLongHigh;
 
+    private boolean trafficK2;
+
+    private boolean setTrafficLongHigh;
+
 }

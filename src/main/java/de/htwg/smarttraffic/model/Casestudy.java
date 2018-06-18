@@ -71,6 +71,8 @@ public class Casestudy {
         EspStatements.setAccidentEndStatement();
         EspStatements.setNitroOxigenHighStatement();
         EspStatements.setNitroOxigenStillHighAfterXMinutes("k2");
+        EspStatements.setTrafficHighStatement();
+        EspStatements.setTraffiStillHighAfterXMinutesStatement("OtoW");
 //        EspStatements.setNitroOxigenLowStatement();
 
     }
