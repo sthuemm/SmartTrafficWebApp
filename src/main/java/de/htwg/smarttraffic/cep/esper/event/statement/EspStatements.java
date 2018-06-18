@@ -12,18 +12,20 @@ public class EspStatements {
 
     public static void setTrafficHighStatement(){
         EPStatement statement = EsperServiceProvider.getInstance().getEPAdministrator()
-                .createEPL("select direction from TrafficStartEvent");
-        statement.addListener(new TrafficStartListener());
+                .createEPL("select count(*) from TrafficStartEvent(direction = 'OtoW')#time(15 seconds) having (count(*) >5 and count(*) <= 6)");
+        statement.addListener(new TrafficStartListener("OtoW"));
     }
 
     public static void setTraffiStillHighAfterXMinutesStatement(String direction){
+
         EPStatement statementTrafficLow = EsperServiceProvider.getInstance().getEPAdministrator()
-                .createEPL("select a,b from pattern [every a = TrafficStartEvent(direction = 'OtoW') -> (timer:interval(10 seconds) and b = TrafficEndEvent(direction = a.direction))]");
+                .createEPL("select count(*) from TrafficStartEvent(direction = 'OtoW')#time(15 seconds) having count(*) <= 3");
         TrafficEndListener trafficEndListener = new TrafficEndListener(direction);
         statementTrafficLow.addListener(trafficEndListener);
 
+
         EPStatement statementTrafficStillHigh = EsperServiceProvider.getInstance().getEPAdministrator()
-                .createEPL("select a,b from pattern [every a = TrafficStartEvent(direction = 'OtoW') -> (timer:interval(10 seconds) and not b = TrafficEndEvent(direction = a.direction))]");
+                .createEPL("select count(*) from TrafficStartEvent(direction = 'OtoW')#time(15 seconds) having count(*) >=10");
         statementTrafficStillHigh.addListener(new TrafficTimeIntervalListener(direction));
     }
 

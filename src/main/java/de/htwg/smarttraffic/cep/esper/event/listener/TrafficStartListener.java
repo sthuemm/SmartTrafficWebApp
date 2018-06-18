@@ -5,16 +5,23 @@ import com.espertech.esper.client.UpdateListener;
 import de.htwg.smarttraffic.model.Casestudy;
 import de.htwg.smarttraffic.model.Intersection;
 import de.htwg.smarttraffic.model.TrafficLight;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@AllArgsConstructor
+@NoArgsConstructor
 public class TrafficStartListener implements UpdateListener {
+
+    private String direction;
 
     @Override
     public void update(EventBean[] eventBeans, EventBean[] eventBeans1) {
         EventBean event = eventBeans[0];
-        log.info("TrafficStartEvent: " + event.getUnderlying());
-        if(event.get("direction").equals("OtoW")){
+        if(direction.equals("OtoW")){
+
+            log.info("TrafficStartEvent: " + event.getUnderlying());
             /*No need to set Traffic Lights
             //Set K3 Traffic Lights
             Intersection intersection = Casestudy.getInstance().getIntersectionMap().get("k3");

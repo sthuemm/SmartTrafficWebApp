@@ -1,9 +1,16 @@
-package de.htwg.smarttraffic.cep.esper.event;
+package de.htwg.smarttraffic.cep.esper.event.traffic;
 
 import de.htwg.smarttraffic.model.TrafficLight;
 
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@AllArgsConstructor
+@Getter
+@Setter
 public class TrafficEvent {
 
     private Type type;

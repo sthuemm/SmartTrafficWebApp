@@ -9,6 +9,7 @@ import de.htwg.smarttraffic.cep.esper.event.railroad.RailroadCrossingBarrierClos
 import de.htwg.smarttraffic.cep.esper.event.railroad.RailroadCrossingBarrierOpenEvent;
 import de.htwg.smarttraffic.cep.esper.event.traffic.TrafficStartEvent;
 import de.htwg.smarttraffic.cep.esper.event.traffic.TrafficEndEvent;
+import de.htwg.smarttraffic.cep.esper.event.traffic.TrafficEvent;
 import org.springframework.stereotype.Service;
 
 
@@ -38,13 +39,4 @@ public class TriggerEventService {
     public void triggerNitrooxigenCrossingLowEvent(String railwayCrossing){
         EsperRuntime.getInstance().sendEvent(new NitrogenOxideEndEvent(railwayCrossing));
     }
-
-    public void triggerTrafficDirectionHighEvent(String direction){
-        EsperRuntime.getInstance().sendEvent(new TrafficStartEvent(direction));
-    }
-
-    public void triggerTrafficDirectionLowEvent(String direction){
-        EsperRuntime.getInstance().sendEvent(new TrafficEndEvent(direction));
-    }
-
 }

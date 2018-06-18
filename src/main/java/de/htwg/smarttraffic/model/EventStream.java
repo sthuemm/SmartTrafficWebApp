@@ -1,7 +1,8 @@
 package de.htwg.smarttraffic.model;
 
 import de.htwg.smarttraffic.cep.esper.EsperRuntime;
-import de.htwg.smarttraffic.cep.esper.event.TrafficEvent;
+import de.htwg.smarttraffic.cep.esper.event.traffic.TrafficEvent;
+import de.htwg.smarttraffic.cep.esper.event.traffic.TrafficStartEvent;
 
 public class EventStream {
 
@@ -30,7 +31,7 @@ public class EventStream {
                 try {
                     Thread.sleep(60000/trafficOtoW);
                     synchronized (EsperRuntime.getInstance()){
-                        EsperRuntime.getInstance().sendEvent(new TrafficEvent("O <--> W"));
+                        EsperRuntime.getInstance().sendEvent(new TrafficStartEvent("OtoW"));
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();

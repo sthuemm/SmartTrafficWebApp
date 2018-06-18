@@ -19,8 +19,9 @@ public class TrafficEndListener implements UpdateListener{
     @Override
     public void update(EventBean[] eventBeans, EventBean[] eventBeans1) {
         EventBean event = eventBeans[0];
-        log.info("TrafficEndEvent: " + event.getUnderlying());
-        if(direction.equals("OtoW")){
+        if(direction.equals("OtoW") && Casestudy.getInstance().getIncidents().isTrafficK2()){
+
+            log.info("TrafficEndEvent: " + event.getUnderlying());
 
             //Set K3 Traffic Lights
             Intersection intersection = Casestudy.getInstance().getIntersectionMap().get("k3");
