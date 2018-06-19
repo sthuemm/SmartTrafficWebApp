@@ -1,12 +1,7 @@
 package de.htwg.smarttraffic.model;
 
-import com.espertech.esper.client.EPStatement;
-
-import com.espertech.esper.client.EventBean;
 import de.htwg.smarttraffic.cep.esper.EsperRuntime;
-import de.htwg.smarttraffic.cep.esper.EsperServiceProvider;
 
-import de.htwg.smarttraffic.cep.esper.event.listener.*;
 import de.htwg.smarttraffic.cep.esper.event.statement.EspStatements;
 import lombok.Getter;
 import lombok.Setter;
@@ -66,9 +61,11 @@ public class Casestudy {
 
     private void setStatements(){
         EspStatements.setBarrierCloseStatement();
-        EspStatements.setBarrierOpenStatement();
+        EspStatements.setBarrierOpenAccidentOccursStatement();
+        EspStatements.setBarrierOpenNoAccidentStatement();
         EspStatements.setAccidentStartStatement();
-        EspStatements.setAccidentEndStatement();
+        EspStatements.setAccidentEndBarrierOpenStatement();
+        EspStatements.setAccidentEndBarrierClosedStatement();
         EspStatements.setNitroOxigenHighStatement();
         EspStatements.setNitroOxigenStillHighAfterXMinutes("k2");
         EspStatements.setTrafficHighStatement();

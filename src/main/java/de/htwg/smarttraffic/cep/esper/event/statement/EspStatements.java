@@ -1,8 +1,6 @@
 package de.htwg.smarttraffic.cep.esper.event.statement;
 
 import com.espertech.esper.client.EPStatement;
-import com.espertech.esper.client.EventBean;
-import com.espertech.esper.client.UpdateListener;
 import de.htwg.smarttraffic.cep.esper.EsperServiceProvider;
 import de.htwg.smarttraffic.cep.esper.event.listener.*;
 import lombok.extern.slf4j.Slf4j;
@@ -36,10 +34,18 @@ public class EspStatements {
         statement.addListener(new AccidentStartListener());
     }
 
-    public static void setAccidentEndStatement(){
+    public static void setAccidentEndBarrierOpenStatement(){
         EPStatement statement = EsperServiceProvider.getInstance().getEPAdministrator()
-                .createEPL("select crossing from AccidentEndEvent");
-        statement.addListener(new AccidentEndListener());
+                .createEPL("select crossing from AccidentEndEvent where ( (select count(*) from RailroadCrossingBarrierCloseEvent) = (select count(*) from RailroadCrossingBarrierOpenEvent))");
+        //"select railwayCrossing from RailroadCrossingBarrierOpenEvent where ( (select count(*) from AccidentStartEvent) = (select count(*) from AccidentEndEvent))"
+        statement.addListener(new AccidentEndBarrierOpenListener());
+    }
+
+    public static void setAccidentEndBarrierClosedStatement(){
+        EPStatement statement = EsperServiceProvider.getInstance().getEPAdministrator()
+                .createEPL("select crossing from AccidentEndEvent where ( (select count(*) from RailroadCrossingBarrierCloseEvent) != (select count(*) from RailroadCrossingBarrierOpenEvent))");
+        //"select railwayCrossing from RailroadCrossingBarrierOpenEvent where ( (select count(*) from AccidentStartEvent) = (select count(*) from AccidentEndEvent))"
+        statement.addListener(new AccidentEndBarrierClosedListener());
     }
 
     public static void setNitroOxigenHighStatement(){
@@ -67,12 +73,21 @@ public class EspStatements {
 
     }
 
-    public static void setBarrierOpenStatement(){
+    public static void setBarrierOpenAccidentOccursStatement(){
         EPStatement statement = EsperServiceProvider.getInstance().getEPAdministrator()
-                .createEPL("select railwayCrossing  from RailroadCrossingBarrierOpenEvent where ( (select count(*) from AccidentStartEvent) != (select count(*) from AccidentEndEvent))");
+                .createEPL("select railwayCrossing from RailroadCrossingBarrierOpenEvent where ( (select count(*) from AccidentStartEvent) != (select count(*) from AccidentEndEvent))");
         //.createEPL("select railwayCrossing from RailroadCrossingBarrierOpenEvent where count(*) from AccidentStartEvent or AccidentEndEvent > 0");
-        statement.addListener(new BarrierOpenListener());
+        statement.addListener(new BarrierOpenAccidentOccursListener());
     }
+
+    public static void setBarrierOpenNoAccidentStatement(){
+        EPStatement statement = EsperServiceProvider.getInstance().getEPAdministrator()
+                .createEPL("select railwayCrossing from RailroadCrossingBarrierOpenEvent where ( (select count(*) from AccidentStartEvent) = (select count(*) from AccidentEndEvent))");
+        //.createEPL("select railwayCrossing from RailroadCrossingBarrierOpenEvent where count(*) from AccidentStartEvent or AccidentEndEvent > 0");
+        statement.addListener(new BarrierOpenNoAccidentListener());
+    }
+
+
 
     public static void set(){
         EPStatement statement = EsperServiceProvider.getInstance().getEPAdministrator()

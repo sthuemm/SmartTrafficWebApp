@@ -2,6 +2,7 @@ package de.htwg.smarttraffic.cep.esper.event.listener;
 
 import com.espertech.esper.client.EventBean;
 import com.espertech.esper.client.UpdateListener;
+import de.htwg.smarttraffic.cep.esper.event.direction.Directions;
 import de.htwg.smarttraffic.model.Casestudy;
 import de.htwg.smarttraffic.model.Intersection;
 import de.htwg.smarttraffic.model.TrafficLight;
@@ -41,6 +42,10 @@ public class AccidentStartListener implements UpdateListener {
             intersectionk1.getTrafficLights().put("ntoS", new TrafficLight("ntoS", "W <--> O", "down", true));
             intersectionk1.getTrafficLights().put("ntoN", new TrafficLight("ntoN", "W <--> O", "left", true));
             Casestudy.getInstance().getIntersectionMap().put("k1", intersectionk1);
+
+
+//            Directions.setDirectionsK1AccidentK2Occurs();
+//            Directions.setDirectionsK3AccidentK2Occurs();
             Casestudy.getInstance().getIncidents().setAccidentK2(true);
         }
 

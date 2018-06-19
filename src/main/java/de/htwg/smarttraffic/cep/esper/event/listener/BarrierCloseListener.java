@@ -15,9 +15,6 @@ import javax.annotation.Resource;
 @Slf4j
 public class BarrierCloseListener implements UpdateListener {
 
-
-    WebsocketController websocketController = new WebsocketController();
-
     @Override
     public void update(EventBean[] eventBeans, EventBean[] eventBeans1) {
         log.info("RailroadCrossingBarrierCloseEvent: " + eventBeans[0].getUnderlying());
