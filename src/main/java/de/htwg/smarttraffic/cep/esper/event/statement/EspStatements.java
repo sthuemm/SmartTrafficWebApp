@@ -16,17 +16,17 @@ public class EspStatements {
 
     public static void setTraffiStillHighAfterXMinutesStatement(String direction){
 
-        EPStatement statementTrafficLow = EsperServiceProvider.getInstance().getEPAdministrator()
-                .createEPL("select count(*) from TrafficStartEvent(direction = 'OtoW')#time(15 seconds) having count(*) <= 3");
-        TrafficEndListener trafficEndListener = new TrafficEndListener(direction);
-        statementTrafficLow.addListener(trafficEndListener);
-
-
         EPStatement statementTrafficStillHigh = EsperServiceProvider.getInstance().getEPAdministrator()
                 .createEPL("select count(*) from TrafficStartEvent(direction = 'OtoW')#time(15 seconds) having count(*) >=10");
         statementTrafficStillHigh.addListener(new TrafficTimeIntervalListener(direction));
     }
 
+    public static void setTrafficNormalStatement(String direction){
+        EPStatement statementTrafficLow = EsperServiceProvider.getInstance().getEPAdministrator()
+                .createEPL("select count(*) from TrafficStartEvent(direction = 'OtoW')#time(15 seconds) having count(*) <= 3");
+        TrafficEndListener trafficEndListener = new TrafficEndListener(direction);
+        statementTrafficLow.addListener(trafficEndListener);
+    }
 
     public static void setAccidentStartStatement(){
         EPStatement statement = EsperServiceProvider.getInstance().getEPAdministrator()
