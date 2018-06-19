@@ -70,6 +70,7 @@ public class EspStatements {
     public static void setBarrierOpenStatement(){
         EPStatement statement = EsperServiceProvider.getInstance().getEPAdministrator()
                 .createEPL("select railwayCrossing from RailroadCrossingBarrierOpenEvent");
+        //.createEPL("select railwayCrossing from RailroadCrossingBarrierOpenEvent where count(*) from AccidentStartEvent or AccidentEndEvent > 0");
         statement.addListener(new BarrierOpenListener());
     }
 

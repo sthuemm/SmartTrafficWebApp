@@ -23,6 +23,7 @@ public class Intersection {
         }
     }
 
+    /*
     private void setTrafficLightsForWNO(){
         TrafficLight trafficLightWtoO = new TrafficLight("wtoO","W <--> O","right", false);
         TrafficLight trafficLightWtoN = new TrafficLight("wtoN","W <--> N","up", false);
@@ -53,6 +54,7 @@ public class Intersection {
         trafficLights.put(trafficLightNtoW.getId(), trafficLightNtoW);
     }
 
+   */
 //    private void setTrafficLightsForWSO(){
 //        TrafficLight trafficLightWtoO = new TrafficLight("wtoO","W <--> O",2);
 //        TrafficLight trafficLightWtoS = new TrafficLight("wtoS","W <--> S",2);
@@ -69,7 +71,7 @@ public class Intersection {
         TrafficLight trafficLightWtoW = new TrafficLight("wtoW","W <--> O","up", false);
 
         TrafficLight trafficLightNtoO = new TrafficLight("ntoO","W <--> O","right", false);
-        TrafficLight trafficLightNtoS = new TrafficLight("ntoS","W <--> O","down", false);
+        TrafficLight trafficLightNtoS = new TrafficLight("ntoS","W <--> O","right", false);
         TrafficLight trafficLightNtoW = new TrafficLight("ntoW","W <--> O","left", false);
         TrafficLight trafficLightNtoN = new TrafficLight("ntoN","W <--> O","right", false);
 
@@ -89,7 +91,7 @@ public class Intersection {
         TrafficLight trafficLightWtoWRtw = new TrafficLight("wtoWRtw","W <--> O","up", false);
 
         TrafficLight trafficLightNtoORtw = new TrafficLight("ntoORtw","W <--> O","right", false);
-        TrafficLight trafficLightNtoSRtw = new TrafficLight("ntoSRtw","W <--> O","down", false);
+        TrafficLight trafficLightNtoSRtw = new TrafficLight("ntoSRtw","W <--> O","right", false);
         TrafficLight trafficLightNtoWRtw = new TrafficLight("ntoWRtw","W <--> O","left", false);
         TrafficLight trafficLightNtoNRtw = new TrafficLight("ntoNRtw","W <--> O","right", false);
 
@@ -146,7 +148,7 @@ public class Intersection {
 
     private void setTrafficLightsForK3(){
         TrafficLight trafficLightWtoO = new TrafficLight("wtoO","W <--> O","right", false);
-        TrafficLight trafficLightWtoS = new TrafficLight("wtoS","W <--> O","up", false);
+        TrafficLight trafficLightWtoS = new TrafficLight("wtoS","W <--> O","right", false);
         TrafficLight trafficLightWtoN = new TrafficLight("wtoN","W <--> O","up", false);
         TrafficLight trafficLightWtoW = new TrafficLight("wtoW","W <--> O","up", false);
 
@@ -161,7 +163,7 @@ public class Intersection {
         TrafficLight trafficLightOtoO = new TrafficLight("otoO","W <--> O","up", false);
 
         TrafficLight trafficLightWtoORtw = new TrafficLight("wtoORtw","W <--> O","right", false);
-        TrafficLight trafficLightWtoSRtw = new TrafficLight("wtoSRtw","W <--> O","up", false);
+        TrafficLight trafficLightWtoSRtw = new TrafficLight("wtoSRtw","W <--> O","right", false);
         TrafficLight trafficLightWtoNRtw = new TrafficLight("wtoNRtw","W <--> O","up", false);
         TrafficLight trafficLightWtoWRtw = new TrafficLight("wtoWRtw","W <--> O","up", false);
 

@@ -13,7 +13,7 @@ public class BarrierOpenListener implements UpdateListener {
     @Override
     public void update(EventBean[] eventBeans, EventBean[] eventBeans1) {
         log.info("RailroadCrossingBarrierOpenEvent: " + eventBeans[0].getUnderlying());
-        if(eventBeans[0].get("railwayCrossing").equals("s1")){
+        //if(eventBeans[0].get("railwayCrossing").equals("s1")){
             Intersection intersectionk3 = Casestudy.getInstance().getIntersectionMap().get("k3");
             intersectionk3.getTrafficLights().put("otoW", new TrafficLight("otoW", "W <--> O", "left", false));
             intersectionk3.getTrafficLights().put("otoWRtw", new TrafficLight("otoWRtw", "W <--> O", "left", false));
@@ -27,6 +27,6 @@ public class BarrierOpenListener implements UpdateListener {
             Casestudy.getInstance().getIntersectionMap().put("k1", intersectionk1);
 
             Casestudy.getInstance().getIncidents().setBarrierS1(false);
-        }
+        //}
     }
 }

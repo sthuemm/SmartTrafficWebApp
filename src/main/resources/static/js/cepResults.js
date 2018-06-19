@@ -236,7 +236,7 @@ var setTableValue = function(elementId, value){
     // console.log("value: "+elementId)
     var element = $(elementId);
     if(value.incident){
-        element.html("<i class='fa fa-arrow-"+value.arrow+"' style='font-size:24px;color:red'></i>");
+        element.html("<i class='fa fa-arrow-"+value.arrow+"' style='font-size:24px;color:green'></i>");
     } else {
         element.html("<i class='fa fa-arrow-"+value.arrow+"' style='font-size:24px;color:black'></i>");
     }
